@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Email Summarizer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      width: 380px;
+      min-height: 220px;
+      background: linear-gradient(160deg, #d1fae5 0%, #bfdbfe 60%, #f0fdf4 100%);
+      font-family: 'Poppins', 'Inter', sans-serif;
+      color: #1e293b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .panel {
+      background: rgba(255,255,255,0.8);
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(59,130,246,0.08);
+      padding: 36px 30px 24px 30px;
+      width: 100%;
+      max-width: 320px;
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo {
+      background: linear-gradient(100deg,#10b981 50%,#3b82f6 100%);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 30px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 14px rgba(16,185,129,0.25);
+    }
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #065f46;
+      text-align: center;
+    }
+    .subtitle {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .btn {
+      border: none;
+      padding: 14px 0;
+      font-size: 1rem;
+      width: 100%;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 0 0 12px 0;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 3px 12px rgba(16,185,129, 0.15);
+    }
+    #loginGoogle {
+      background: linear-gradient(90deg,#10b981 30%,#3b82f6 100%);
+      color: #fff;
+    }
+    #loginGoogle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 18px rgba(16,185,129,0.2);
+    }
+    .cta-note {
+      font-size: 13px;
+      color: #374151;
+      margin-top: 12px;
+      text-align: center;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="logo">📧</div>
+    <h1>Email Summarizer Pro</h1>
+    <div class="subtitle">Advanced AI-powered email analysis and intelligent summarization</div>
+    <button id="loginGoogle" class="btn">Sign In</button>
+    <!-- <div class="cta-note">
+      Secure Google login unlocks instant summaries.<br>
+      <strong>After login, side panel opens automatically 🚀</strong>
+    </div> -->
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

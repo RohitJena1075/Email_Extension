@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Email Summarizer & Categorizer",
+  "version": "1.1.0",
+  "description": "Summarize & categorize Gmail emails with one click.",
+  "action": {
+    "default_title": "Summarize Email",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "identity",
+    "alarms",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*"
+  ],
+  "oauth2": {
+    "client_id": "130677489883-ingosll10qjp07ha32fva60247rv6vsc.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/gmail.readonly"
+    ]
+  },
+  "background": {
+    "service_worker": "service_worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "panel.html"
+  }
+}
+
+
+
+
+
