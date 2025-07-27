@@ -13,22 +13,25 @@ loginGoogleBtn.addEventListener("click", async () => {
   const { isLoggedIn } = await chrome.storage.local.get("isLoggedIn");
 
   if (!isLoggedIn) {
-    // Do login -> then open side panel (same user gesture)
+    // Start login but don't wait for async message before opening side panel
     chrome.runtime.sendMessage({ type: "GOOGLE_LOGIN" }, async (resp) => {
       if (resp?.ok) {
         await chrome.storage.local.set({ isLoggedIn: true });
-        await openSidePanelFromPopup(); // <-- user gesture safe
-        window.close();
+        // Can't open panel here because it's not in user gesture anymore
+        // Instead, notify user or set a flag to auto-open next time
       } else {
         alert(`Google login failed: ${resp?.error}`);
       }
     });
+    // For login flow, we should ask user to click again to open panel
+    loginGoogleBtn.textContent = "Click to Open Side Panel";
   } else {
-    // Already logged in, just open the panel
-    await openSidePanelFromPopup(); // <-- user gesture safe
+    // Safe to open panel immediately on user gesture
+    await openSidePanelFromPopup();
     window.close();
   }
 });
+
 
 // IMPORTANT: call sidePanel.open() from here (popup = user gesture allowed)
 async function openSidePanelFromPopup() {
